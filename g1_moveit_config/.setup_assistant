@@ -1,7 +1,7 @@
 moveit_setup_assistant_config:
   urdf:
-    package: g1_description
-    relative_path: urdf/g1_29dof.urdf
+    package: g1_moveit_config
+    relative_path: config/g1_29dof.urdf.xacro
   srdf:
     relative_path: config/g1_29dof.srdf
   package_settings:

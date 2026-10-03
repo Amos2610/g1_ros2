@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- 両腕（7+7）と腰（3）を mock hardware で動かす。state_interfaces は position/velocity、command は position -->
+  <xacro:macro name="g1_29dof_ros2_control" params="name">
+    <ros2_control name="${name}" type="system">
+      <hardware>
+        <plugin>mock_components/GenericSystem</plugin>
+      </hardware>
+      <xacro:macro name="g1_joint" params="joint">
+        <joint name="${joint}">
+          <command_interface name="position"/>
+          <state_interface name="position">
+            <param name="initial_value">0.0</param>
+          </state_interface>
+          <state_interface name="velocity"/>
+        </joint>
+      </xacro:macro>
+      <xacro:g1_joint joint="waist_yaw_joint"/>
+      <xacro:g1_joint joint="waist_roll_joint"/>
+      <xacro:g1_joint joint="waist_pitch_joint"/>
+      <xacro:g1_joint joint="left_shoulder_pitch_joint"/>
+      <xacro:g1_joint joint="left_shoulder_roll_joint"/>
+      <xacro:g1_joint joint="left_shoulder_yaw_joint"/>
+      <xacro:g1_joint joint="left_elbow_joint"/>
+      <xacro:g1_joint joint="left_wrist_roll_joint"/>
+      <xacro:g1_joint joint="left_wrist_pitch_joint"/>
+      <xacro:g1_joint joint="left_wrist_yaw_joint"/>
+      <xacro:g1_joint joint="right_shoulder_pitch_joint"/>
+      <xacro:g1_joint joint="right_shoulder_roll_joint"/>
+      <xacro:g1_joint joint="right_shoulder_yaw_joint"/>
+      <xacro:g1_joint joint="right_elbow_joint"/>
+      <xacro:g1_joint joint="right_wrist_roll_joint"/>
+      <xacro:g1_joint joint="right_wrist_pitch_joint"/>
+      <xacro:g1_joint joint="right_wrist_yaw_joint"/>
+    </ros2_control>
+  </xacro:macro>
+</robot>

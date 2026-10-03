@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+  g1_description の URDF（29 DoF）に、シミュレーション用の ros2_control（mock hardware）を付けたもの。
+  MoveIt の demo.launch.py は .setup_assistant に書かれたこのファイルから robot_description を作る。
+  mock で動かすのは両腕 7+7 と腰 3 の 17 関節。脚は固定（コントローラ無し）。
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="g1_29dof">
+  <xacro:include filename="$(find g1_description)/urdf/g1_29dof.urdf"/>
+  <xacro:include filename="$(find g1_moveit_config)/config/g1_29dof.ros2_control.xacro"/>
+  <xacro:g1_29dof_ros2_control name="G1MockHardware"/>
+</robot>
