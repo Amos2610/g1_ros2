@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: g1_description
+    relative_path: urdf/g1_29dof.urdf
+  srdf:
+    relative_path: config/g1_29dof.srdf
+  package_settings:
+    author_name: Ravi Joshi
+    author_email: 1439011+ravijo@users.noreply.github.com
+    generated_timestamp: 1779528710
